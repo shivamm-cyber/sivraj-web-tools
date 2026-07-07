@@ -1,0 +1,3 @@
+Contact: mailto:operator@sivraj.in
+Preferred-Languages: en
+Canonical: https://sivraj.in/.well-known/security.txt
