@@ -13,6 +13,7 @@ import ScreenRecorder from './pages/ScreenRecorder.tsx'
 import PdfTools from './pages/PdfTools.tsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.tsx'
 import TermsOfService from './pages/TermsOfService.tsx'
+import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   </StrictMode>,
 )
