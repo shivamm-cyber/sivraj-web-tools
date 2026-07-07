@@ -21,7 +21,7 @@ export default function TextConverter() {
         newText = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, c => c.toUpperCase());
         break;
       case 'camel':
-        newText = text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+        newText = text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase());
         break;
       case 'snake':
         newText = text.toLowerCase().replace(/\s+/g, '_');

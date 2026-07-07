@@ -177,7 +177,7 @@ export default function ImageOptimizer() {
             }}>
               <div>
                 <h3 style={{ color: 'var(--primary-accent)', marginBottom: '0.5rem' }}>Success!</h3>
-                <p>Original: <strike style={{color: 'var(--text-muted)'}}>{formatSize(originalFile!.size)}</strike></p>
+                <p>Original: <del style={{color: 'var(--text-muted)'}}>{formatSize(originalFile!.size)}</del></p>
                 <p style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>New Size: {formatSize(compressedFile.size)}</p>
                 <p style={{ color: '#4ade80', fontSize: '0.9rem', marginTop: '4px' }}>
                   Saved {((originalFile!.size - compressedFile.size) / originalFile!.size * 100).toFixed(1)}%

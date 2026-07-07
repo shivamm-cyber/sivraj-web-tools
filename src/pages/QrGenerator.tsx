@@ -29,7 +29,7 @@ export default function QrGenerator() {
 
   const [fgColor, setFgColor] = useState('#00f0ff');
   const [bgColor, setBgColor] = useState('#ffffff');
-  const [level, setLevel] = useState('H');
+  const [level, setLevel] = useState<'L' | 'M' | 'Q' | 'H'>('H');
   const [logoUrl, setLogoUrl] = useState('');
   const qrRef = useRef<HTMLDivElement>(null);
 
@@ -278,7 +278,7 @@ export default function QrGenerator() {
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Error Correction (Quality)</label>
                 <select 
                   value={level} 
-                  onChange={(e) => setLevel(e.target.value)}
+                  onChange={(e) => setLevel(e.target.value as 'L' | 'M' | 'Q' | 'H')}
                   style={{
                     width: '100%',
                     background: 'var(--bg-dark)',
