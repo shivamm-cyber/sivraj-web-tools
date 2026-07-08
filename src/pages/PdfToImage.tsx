@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import * as pdfjsLib from 'pdfjs-dist';
@@ -57,7 +57,12 @@ export default function PdfToImage() {
           canvas.height = viewport.height;
           canvas.width = viewport.width;
 
-          await page.render({ canvasContext: context, viewport }).promise;
+          const renderContext: any = {
+            canvasContext: context,
+            viewport: viewport,
+            canvas: canvas
+          };
+          await page.render(renderContext).promise;
           
           // Convert to JPEG for better file size
           const imgData = canvas.toDataURL('image/jpeg', 0.9);
