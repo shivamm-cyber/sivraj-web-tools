@@ -44,6 +44,19 @@ export default function PasswordGenerator() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const downloadPassword = () => {
+    if (!password || password.includes('Please')) return;
+    const blob = new Blob([password], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'secure_password.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   const calculateStrength = () => {
     let score = 0;
     if (length > 8) score += 1;
@@ -162,22 +175,39 @@ export default function PasswordGenerator() {
               </label>
             </div>
             
-            <button 
-              onClick={generatePassword}
-              style={{
-                background: 'transparent',
-                color: 'white',
-                border: '1px solid var(--border-color)',
-                padding: '16px',
-                borderRadius: '8px',
-                fontWeight: 'bold',
-                fontSize: '1.1rem',
-                cursor: 'pointer',
-                marginTop: '1rem'
-              }}
-            >
-              🔄 Generate New Password
-            </button>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+              <button 
+                onClick={generatePassword}
+                style={{
+                  background: 'transparent',
+                  color: 'white',
+                  border: '1px solid var(--border-color)',
+                  padding: '16px',
+                  borderRadius: '8px',
+                  fontWeight: 'bold',
+                  fontSize: '1.1rem',
+                  cursor: 'pointer',
+                }}
+              >
+                🔄 Generate New
+              </button>
+
+              <button 
+                onClick={downloadPassword}
+                style={{
+                  background: 'var(--primary-accent)',
+                  color: 'var(--bg-dark)',
+                  border: 'none',
+                  padding: '16px',
+                  borderRadius: '8px',
+                  fontWeight: 'bold',
+                  fontSize: '1.1rem',
+                  cursor: 'pointer',
+                }}
+              >
+                💾 Download .txt
+              </button>
+            </div>
             
           </div>
         </div>
