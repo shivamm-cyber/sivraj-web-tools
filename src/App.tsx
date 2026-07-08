@@ -203,6 +203,90 @@ function App() {
               </div>
             </div>
           </Link>
+
+          {/* Tool 10: Word & SEO Analyzer */}
+          <Link to="/word-analyzer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+            <div className="tool-card">
+              <div className="badge">New</div>
+              <div className="tool-icon-wrapper">
+                📝
+              </div>
+              <h2>Word & SEO Analyzer</h2>
+              <p>
+                Count words, characters, and instantly extract top keywords for SEO optimization.
+              </p>
+              <div className="btn-launch">
+                Launch Tool
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Tool 11: Color Palette Extractor */}
+          <Link to="/color-extractor" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+            <div className="tool-card">
+              <div className="badge">New</div>
+              <div className="tool-icon-wrapper">
+                🎨
+              </div>
+              <h2>Color Palette Extractor</h2>
+              <p>
+                Upload any image to instantly extract its dominant color palette and hex codes.
+              </p>
+              <div className="btn-launch">
+                Launch Tool
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Tool 12: Voice Recorder */}
+          <Link to="/voice-recorder" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+            <div className="tool-card">
+              <div className="badge">New</div>
+              <div className="tool-icon-wrapper">
+                🎙️
+              </div>
+              <h2>Secure Voice Recorder</h2>
+              <p>
+                Record high-quality audio directly from your microphone and download instantly.
+              </p>
+              <div className="btn-launch">
+                Launch Tool
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Tool 13: JSON Formatter */}
+          <Link to="/json-formatter" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+            <div className="tool-card">
+              <div className="badge">New</div>
+              <div className="tool-icon-wrapper">
+                👨‍💻
+              </div>
+              <h2>JSON Formatter</h2>
+              <p>
+                Paste messy JSON code to instantly format, validate, and syntax highlight it.
+              </p>
+              <div className="btn-launch">
+                Launch Tool
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </Link>
         </section>
       </main>
 
