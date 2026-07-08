@@ -1,3 +1,4 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import heic2any from 'heic2any';
@@ -5,6 +6,11 @@ import heic2any from 'heic2any';
 type ImageFormat = 'image/jpeg' | 'image/png' | 'image/webp';
 
 export default function ImageConverter() {
+  useSEO({
+    title: 'Image Converter | Free Online Tool | Sivraj',
+    description: 'Free online Image Converter tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [targetFormat, setTargetFormat] = useState<ImageFormat>('image/jpeg');
   const [isProcessing, setIsProcessing] = useState(false);

@@ -1,7 +1,13 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function PasswordGenerator() {
+  useSEO({
+    title: 'Password Generator | Free Online Tool | Sivraj',
+    description: 'Free online Password Generator tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [password, setPassword] = useState('');
   const [length, setLength] = useState(16);
   const [includeUppercase, setIncludeUppercase] = useState(true);

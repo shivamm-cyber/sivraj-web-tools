@@ -1,8 +1,14 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PDFDocument } from 'pdf-lib';
 
 export default function PdfTools() {
+  useSEO({
+    title: 'Pdf Tools | Free Online Tool | Sivraj',
+    description: 'Free online Pdf Tools tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [pdfFiles, setPdfFiles] = useState<File[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [mergedPdfUrl, setMergedPdfUrl] = useState<string | null>(null);

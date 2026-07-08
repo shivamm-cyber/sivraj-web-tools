@@ -1,7 +1,13 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function WordAnalyzer() {
+  useSEO({
+    title: 'Word Analyzer | Free Online Tool | Sivraj',
+    description: 'Free online Word Analyzer tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [text, setText] = useState('');
   const [stats, setStats] = useState({
     words: 0,

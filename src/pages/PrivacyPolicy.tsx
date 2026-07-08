@@ -1,6 +1,12 @@
+import { useSEO } from '../hooks/useSEO';
 import { Link } from 'react-router-dom';
 
 export default function PrivacyPolicy() {
+  useSEO({
+    title: 'Privacy Policy | Free Online Tool | Sivraj',
+    description: 'Free online Privacy Policy tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   return (
     <div className="app-container">
       <header className="header" style={{ marginBottom: '2rem' }}>

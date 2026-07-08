@@ -1,7 +1,13 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function VoiceRecorder() {
+  useSEO({
+    title: 'Voice Recorder | Free Online Tool | Sivraj',
+    description: 'Free online Voice Recorder tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [isRecording, setIsRecording] = useState(false);
   const [audioURL, setAudioURL] = useState<string | null>(null);
   const [recordingTime, setRecordingTime] = useState(0);

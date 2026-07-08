@@ -17,6 +17,9 @@ import WordAnalyzer from './pages/WordAnalyzer.tsx'
 import ColorExtractor from './pages/ColorExtractor.tsx'
 import VoiceRecorder from './pages/VoiceRecorder.tsx'
 import JsonFormatter from './pages/JsonFormatter.tsx'
+import AadhaarMasker from './pages/AadhaarMasker.tsx'
+import GstCalculator from './pages/GstCalculator.tsx'
+import PdfToImage from './pages/PdfToImage.tsx'
 import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 
@@ -38,6 +41,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/color-extractor" element={<ColorExtractor />} />
         <Route path="/voice-recorder" element={<VoiceRecorder />} />
         <Route path="/json-formatter" element={<JsonFormatter />} />
+        <Route path="/aadhaar-masker" element={<AadhaarMasker />} />
+        <Route path="/gst-calculator" element={<GstCalculator />} />
+        <Route path="/pdf-to-image" element={<PdfToImage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
       </Routes>

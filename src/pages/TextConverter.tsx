@@ -1,7 +1,13 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function TextConverter() {
+  useSEO({
+    title: 'Text Converter | Free Online Tool | Sivraj',
+    description: 'Free online Text Converter tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [text, setText] = useState('');
 
   const handleCaseChange = (type: 'upper' | 'lower' | 'title' | 'sentence' | 'camel' | 'snake') => {

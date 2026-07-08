@@ -1,7 +1,13 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ScreenRecorder() {
+  useSEO({
+    title: 'Screen Recorder | Free Online Tool | Sivraj',
+    description: 'Free online Screen Recorder tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [isRecording, setIsRecording] = useState(false);
   const [hasRecorded, setHasRecorded] = useState(false);
   const [error, setError] = useState('');

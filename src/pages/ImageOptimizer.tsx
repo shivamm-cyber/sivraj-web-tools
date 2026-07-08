@@ -1,8 +1,14 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState } from 'react';
 import imageCompression from 'browser-image-compression';
 import { Link } from 'react-router-dom';
 
 export default function ImageOptimizer() {
+  useSEO({
+    title: 'Image Optimizer | Free Online Tool | Sivraj',
+    description: 'Free online Image Optimizer tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [compressedFile, setCompressedFile] = useState<File | null>(null);
   const [isCompressing, setIsCompressing] = useState(false);

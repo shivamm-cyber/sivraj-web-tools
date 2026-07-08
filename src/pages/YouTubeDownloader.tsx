@@ -1,7 +1,13 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function YouTubeDownloader() {
+  useSEO({
+    title: 'You Tube Downloader | Free Online Tool | Sivraj',
+    description: 'Free online You Tube Downloader tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [url, setUrl] = useState('');
   const [videoId, setVideoId] = useState<string | null>(null);
   const [error, setError] = useState('');

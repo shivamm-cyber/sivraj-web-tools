@@ -1,6 +1,135 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSEO } from './hooks/useSEO';
+
+const toolsList = [
+  {
+    path: '/aadhaar-masker',
+    icon: '🛡️',
+    title: 'Aadhaar & ID Masker',
+    desc: 'Securely blur your Aadhaar number or sensitive details before sharing. 100% Private.',
+    badge: 'Viral'
+  },
+  {
+    path: '/gst-calculator',
+    icon: '🧮',
+    title: 'GST Calculator (India)',
+    desc: 'Calculate Goods and Services Tax instantly. Add or remove GST with full CGST/SGST breakdown.',
+    badge: 'Hot'
+  },
+  {
+    path: '/pdf-to-image',
+    icon: '📄',
+    title: 'PDF to JPG Converter',
+    desc: 'Extract every page of a PDF into high-quality JPG images instantly.',
+    badge: 'New'
+  },
+  {
+    path: '/image-optimizer',
+    icon: '📸',
+    title: 'Image Optimizer',
+    desc: 'Compress huge photos down to 50KB for government forms, or convert formats instantly.',
+    badge: ''
+  },
+  {
+    path: '/background-remover',
+    icon: '✨',
+    title: 'AI Background Remover',
+    desc: 'Drop any photo and let our in-browser AI magically erase the background in seconds.',
+    badge: ''
+  },
+  {
+    path: '/qr-generator',
+    icon: '📱',
+    title: 'QR Generator Pro',
+    desc: 'Create beautiful, scannable QR codes with custom colors and center logos.',
+    badge: ''
+  },
+  {
+    path: '/password-generator',
+    icon: '🔐',
+    title: 'Secure Password Gen',
+    desc: 'Generate mathematically secure, uncrackable passwords instantly.',
+    badge: ''
+  },
+  {
+    path: '/text-converter',
+    icon: '📝',
+    title: 'Text & Case Converter',
+    desc: 'Instantly convert text to UPPERCASE, lowercase, or Title Case.',
+    badge: ''
+  },
+  {
+    path: '/youtube-thumbnail',
+    icon: '▶️',
+    title: 'YouTube Thumbnail Grabber',
+    desc: 'Paste any YouTube URL to instantly download the hidden 1080p cover thumbnail.',
+    badge: ''
+  },
+  {
+    path: '/image-converter',
+    icon: '🔄',
+    title: 'Image Format Converter',
+    desc: 'Convert iPhone HEIC photos to JPG format, or convert PNGs to WEBP directly in your browser.',
+    badge: ''
+  },
+  {
+    path: '/screen-recorder',
+    icon: '⏺️',
+    title: 'In-Browser Screen Recorder',
+    desc: 'Record your screen and microphone instantly. No downloads required.',
+    badge: ''
+  },
+  {
+    path: '/pdf-tools',
+    icon: '📄',
+    title: 'PDF Merger',
+    desc: 'Combine multiple PDF files into one instantly securely in your browser.',
+    badge: ''
+  },
+  {
+    path: '/word-analyzer',
+    icon: '📝',
+    title: 'Word & SEO Analyzer',
+    desc: 'Count words, characters, and instantly extract top keywords for SEO optimization.',
+    badge: ''
+  },
+  {
+    path: '/color-extractor',
+    icon: '🎨',
+    title: 'Color Palette Extractor',
+    desc: 'Upload any image to instantly extract its dominant color palette and hex codes.',
+    badge: ''
+  },
+  {
+    path: '/voice-recorder',
+    icon: '🎙️',
+    title: 'Secure Voice Recorder',
+    desc: 'Record high-quality audio directly from your microphone and download instantly.',
+    badge: ''
+  },
+  {
+    path: '/json-formatter',
+    icon: '👨‍💻',
+    title: 'JSON Formatter',
+    desc: 'Paste messy JSON code to instantly format, validate, and syntax highlight it.',
+    badge: ''
+  }
+];
 
 function App() {
+  useSEO({
+    title: 'Sivraj Web Tools | 16+ Free Premium Utility Tools',
+    description: 'A collection of blazingly fast, free web utilities running entirely in your browser. No signups, no server uploads, complete privacy.'
+  });
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredTools = toolsList.filter(tool => 
+    tool.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    tool.desc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="app-container">
       <header className="header">
@@ -17,276 +146,55 @@ function App() {
             A collection of blazingly fast, free web utilities running entirely in your browser. 
             No signups, no server uploads, complete privacy.
           </p>
+          
+          <div style={{ marginTop: '2rem', maxWidth: '600px', margin: '2rem auto 0' }}>
+            <input 
+              type="text" 
+              placeholder="🔍 Search for a tool (e.g., 'PDF', 'Image', 'Aadhaar')..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '16px 24px',
+                borderRadius: '50px',
+                border: '2px solid var(--primary-accent)',
+                background: 'var(--bg-dark)',
+                color: 'white',
+                fontSize: '1.2rem',
+                outline: 'none',
+                boxShadow: '0 10px 30px rgba(59, 130, 246, 0.2)'
+              }}
+            />
+          </div>
         </section>
 
-        <section className="tools-grid">
-          {/* Tool 1: Image Optimizer */}
-          <Link to="/image-optimizer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="badge">Hot</div>
-              <div className="tool-icon-wrapper">
-                📸
-              </div>
-              <h2>Image Optimizer</h2>
-              <p>
-                Compress huge photos down to 50KB for government forms, or convert formats instantly. 
-                Zero quality loss, 100% free.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
+        <section className="tools-grid" style={{ marginTop: '3rem' }}>
+          {filteredTools.length > 0 ? (
+            filteredTools.map((tool, idx) => (
+              <Link key={idx} to={tool.path} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                <div className="tool-card">
+                  {tool.badge && <div className="badge">{tool.badge}</div>}
+                  <div className="tool-icon-wrapper">
+                    {tool.icon}
+                  </div>
+                  <h2>{tool.title}</h2>
+                  <p>{tool.desc}</p>
+                  <div className="btn-launch">
+                    Launch Tool
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem', color: 'var(--text-muted)' }}>
+              <h2>No tools found for "{searchQuery}"</h2>
+              <p>Try searching for something else, like "PDF" or "Image".</p>
             </div>
-          </Link>
-
-          {/* Tool 2: AI Background Remover */}
-          <Link to="/background-remover" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                ✨
-              </div>
-              <h2>AI Background Remover</h2>
-              <p>
-                Drop any photo and let our in-browser AI magically erase the background in seconds. 
-                Perfect for products and portraits.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 3: QR Code Generator */}
-          <Link to="/qr-generator" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                📱
-              </div>
-              <h2>QR Generator Pro</h2>
-              <p>
-                Create beautiful, scannable QR codes with custom colors and center logos. 
-                Download instantly in high-res PNG or SVG.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 8: Secure Password Generator */}
-          <Link to="/password-generator" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                🔐
-              </div>
-              <h2>Secure Password Gen</h2>
-              <p>
-                Generate mathematically secure, uncrackable passwords instantly. Your password never leaves your browser.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 9: Text & Case Converter */}
-          <Link to="/text-converter" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                📝
-              </div>
-              <h2>Text & Case Converter</h2>
-              <p>
-                Instantly convert text to UPPERCASE, lowercase, or Title Case. Real-time word and character counting.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 7: YouTube Thumbnail Downloader */}
-          <Link to="/youtube-thumbnail" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                ▶️
-              </div>
-              <h2>YouTube Thumbnail Grabber</h2>
-              <p>
-                Paste any YouTube URL to instantly download the hidden 1080p, 720p, or 480p cover thumbnail.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 5: Image Format Converter */}
-          <Link to="/image-converter" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                🔄
-              </div>
-              <h2>Image Format Converter</h2>
-              <p>
-                Convert iPhone HEIC photos to standard JPG format, or convert PNGs to WEBP directly in your browser.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 6: Screen Recorder */}
-          <Link to="/screen-recorder" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                ⏺️
-              </div>
-              <h2>In-Browser Screen Recorder</h2>
-              <p>
-                Record your screen and microphone instantly. No downloads required, and your video never leaves your computer.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 4: PDF Merger */}
-          <Link to="/pdf-tools" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="tool-icon-wrapper">
-                📄
-              </div>
-              <h2>PDF Merger</h2>
-              <p>
-                Combine multiple PDF files into one instantly. Your files are processed securely in your browser and never uploaded.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 10: Word & SEO Analyzer */}
-          <Link to="/word-analyzer" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="badge">New</div>
-              <div className="tool-icon-wrapper">
-                📝
-              </div>
-              <h2>Word & SEO Analyzer</h2>
-              <p>
-                Count words, characters, and instantly extract top keywords for SEO optimization.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 11: Color Palette Extractor */}
-          <Link to="/color-extractor" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="badge">New</div>
-              <div className="tool-icon-wrapper">
-                🎨
-              </div>
-              <h2>Color Palette Extractor</h2>
-              <p>
-                Upload any image to instantly extract its dominant color palette and hex codes.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 12: Voice Recorder */}
-          <Link to="/voice-recorder" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="badge">New</div>
-              <div className="tool-icon-wrapper">
-                🎙️
-              </div>
-              <h2>Secure Voice Recorder</h2>
-              <p>
-                Record high-quality audio directly from your microphone and download instantly.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Tool 13: JSON Formatter */}
-          <Link to="/json-formatter" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-            <div className="tool-card">
-              <div className="badge">New</div>
-              <div className="tool-icon-wrapper">
-                👨‍💻
-              </div>
-              <h2>JSON Formatter</h2>
-              <p>
-                Paste messy JSON code to instantly format, validate, and syntax highlight it.
-              </p>
-              <div className="btn-launch">
-                Launch Tool
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </div>
-            </div>
-          </Link>
+          )}
         </section>
       </main>
 

@@ -1,8 +1,14 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { removeBackground } from '@imgly/background-removal';
 
 export default function BackgroundRemover() {
+  useSEO({
+    title: 'Background Remover | Free Online Tool | Sivraj',
+    description: 'Free online Background Remover tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [processedUrl, setProcessedUrl] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);

@@ -1,3 +1,4 @@
+import { useSEO } from '../hooks/useSEO';
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { QRCodeCanvas } from 'qrcode.react';
@@ -5,6 +6,11 @@ import { QRCodeCanvas } from 'qrcode.react';
 type QrType = 'url' | 'wifi' | 'email' | 'phone' | 'sms' | 'vcard' | 'whatsapp' | 'location';
 
 export default function QrGenerator() {
+  useSEO({
+    title: 'Qr Generator | Free Online Tool | Sivraj',
+    description: 'Free online Qr Generator tool running entirely in your browser. Fast, secure, and 100% private.'
+  });
+
   const [qrType, setQrType] = useState<QrType>('url');
   
   // States for different types
