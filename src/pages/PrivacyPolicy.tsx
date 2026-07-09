@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
 
           <h2 style={{ marginTop: '2rem', color: 'white' }}>5. Contact Us</h2>
           <p>
-            If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at contact@sivraj.in.
+            If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at shivamdevsupport@gmail.com.
           </p>
         </div>
       </main>
