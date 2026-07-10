@@ -20,6 +20,16 @@ import JsonFormatter from './pages/JsonFormatter.tsx'
 import AadhaarMasker from './pages/AadhaarMasker.tsx'
 import GstCalculator from './pages/GstCalculator.tsx'
 import PdfToImage from './pages/PdfToImage.tsx'
+import Blog from './pages/Blog.tsx'
+import BlogPost from './pages/BlogPost.tsx'
+import EmiCalculator from './pages/EmiCalculator.tsx'
+import AgeCalculator from './pages/AgeCalculator.tsx'
+import Base64Encoder from './pages/Base64Encoder.tsx'
+import CodeMinifier from './pages/CodeMinifier.tsx'
+import UrlEncoder from './pages/UrlEncoder.tsx'
+import ImageResizer from './pages/ImageResizer.tsx'
+import ColorPicker from './pages/ColorPicker.tsx'
+import SvgToPng from './pages/SvgToPng.tsx'
 import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 
@@ -44,6 +54,16 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/aadhaar-masker" element={<AadhaarMasker />} />
         <Route path="/gst-calculator" element={<GstCalculator />} />
         <Route path="/pdf-to-image" element={<PdfToImage />} />
+        <Route path="/emi-calculator" element={<EmiCalculator />} />
+        <Route path="/age-calculator" element={<AgeCalculator />} />
+        <Route path="/base64-encoder" element={<Base64Encoder />} />
+        <Route path="/code-minifier" element={<CodeMinifier />} />
+        <Route path="/url-encoder" element={<UrlEncoder />} />
+        <Route path="/image-resizer" element={<ImageResizer />} />
+        <Route path="/color-picker" element={<ColorPicker />} />
+        <Route path="/svg-to-png" element={<SvgToPng />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
       </Routes>

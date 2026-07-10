@@ -1,7 +1,7 @@
 import { useSEO } from '../hooks/useSEO';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import FAQ from '../components/FAQ';
 export default function PasswordGenerator() {
   useSEO({
     title: 'Password Generator | Free Online Tool | Sivraj',
@@ -216,6 +216,42 @@ export default function PasswordGenerator() {
             </div>
             
           </div>
+        </div>
+
+        {/* SEO & FAQ Section */}
+        <div style={{ maxWidth: '800px', margin: '4rem auto 0 auto', lineHeight: '1.6', color: 'var(--text-color)' }}>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'white' }}>Why You Need a Strong Password Generator</h2>
+          <p style={{ marginBottom: '1rem' }}>
+            In 2026, cyber threats are more advanced than ever. Hardware has gotten so fast that hackers can crack 8-character passwords in a matter of seconds using automated brute-force attacks. The old advice of using "at least 8 characters with a symbol" is dangerously outdated.
+          </p>
+          <p style={{ marginBottom: '1rem' }}>
+            Security experts now agree that <strong>length</strong> is the most critical factor in password security. A 16-character password is exponentially harder to crack than an 8-character one. By using our Free Secure Password Generator, you create a cryptographically strong, mathematically random string that is practically impossible for any supercomputer to guess.
+          </p>
+          <h3 style={{ fontSize: '1.5rem', marginTop: '2rem', marginBottom: '1rem', color: 'white' }}>How does a random password generator work?</h3>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Our tool uses your browser's built-in <code>crypto.getRandomValues()</code> API. This means the randomness is generated locally on your machine, not on a server. It ensures that the generated password is truly unpredictable and completely private. It never leaves your device.
+          </p>
+
+          <FAQ 
+            items={[
+              {
+                question: 'Is it safe to use an online password generator?',
+                answer: 'Yes, provided the tool runs entirely in your browser (client-side) like ours does. We never transmit your generated passwords to any server. You can even disconnect from the internet, and this tool will still work.'
+              },
+              {
+                question: 'How long should my password be?',
+                answer: 'For most critical accounts (email, banking), you should aim for at least 16 characters. Our tool defaults to 16, which provides an excellent balance of extreme security and usability when used with a password manager.'
+              },
+              {
+                question: 'What makes a password strong?',
+                answer: 'A strong password is long, random, and unique. Avoid dictionary words, birthdates, or predictable substitutions (like P@ssw0rd). The best password looks like complete gibberish.'
+              },
+              {
+                question: 'Should I memorize these passwords?',
+                answer: 'No. You should use a trusted Password Manager to store these long, secure passwords. You only need to memorize one "Master Password" to unlock the manager.'
+              }
+            ]} 
+          />
         </div>
       </main>
     </div>

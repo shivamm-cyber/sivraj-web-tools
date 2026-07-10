@@ -114,6 +114,62 @@ const toolsList = [
     title: 'JSON Formatter',
     desc: 'Paste messy JSON code to instantly format, validate, and syntax highlight it.',
     badge: ''
+  },
+  {
+    path: '/emi-calculator',
+    icon: '🏦',
+    title: 'EMI Calculator',
+    desc: 'Instantly calculate Equated Monthly Installments for home, car, or personal loans.',
+    badge: 'New'
+  },
+  {
+    path: '/age-calculator',
+    icon: '🎂',
+    title: 'Age Calculator',
+    desc: 'Calculate your exact age in years, months, and days for government forms.',
+    badge: 'New'
+  },
+  {
+    path: '/base64-encoder',
+    icon: '🔒',
+    title: 'Base64 Encoder',
+    desc: 'Convert any text to Base64 format or decode Base64 back into readable text.',
+    badge: 'New'
+  },
+  {
+    path: '/code-minifier',
+    icon: '✂️',
+    title: 'Code Minifier',
+    desc: 'Instantly compress CSS and JSON code by removing unnecessary whitespace.',
+    badge: 'New'
+  },
+  {
+    path: '/url-encoder',
+    icon: '🔗',
+    title: 'URL Encoder / Decoder',
+    desc: 'Escape special characters for safe transmission over the internet.',
+    badge: 'New'
+  },
+  {
+    path: '/image-resizer',
+    icon: '📏',
+    title: 'Image Resizer',
+    desc: 'Resize photos for Instagram, Twitter, or custom dimensions perfectly.',
+    badge: 'New'
+  },
+  {
+    path: '/color-picker',
+    icon: '🎨',
+    title: 'Advanced Color Picker',
+    desc: 'Find the perfect color and get instant HEX and RGB codes for your UI.',
+    badge: 'New'
+  },
+  {
+    path: '/svg-to-png',
+    icon: '🖼️',
+    title: 'SVG to PNG Converter',
+    desc: 'Convert vector SVG files or raw code into high-quality PNG images.',
+    badge: 'New'
   }
 ];
 
@@ -132,10 +188,10 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="header">
+      <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div className="logo">SIVRAJ</div>
         <nav>
-          {/* Navigation for future tools */}
+          <Link to="/blog" style={{ color: 'var(--primary-accent)', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>Blog & Guides</Link>
         </nav>
       </header>
 

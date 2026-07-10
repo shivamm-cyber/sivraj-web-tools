@@ -2,7 +2,7 @@ import { useSEO } from '../hooks/useSEO';
 import { useState } from 'react';
 import imageCompression from 'browser-image-compression';
 import { Link } from 'react-router-dom';
-
+import FAQ from '../components/FAQ';
 export default function ImageOptimizer() {
   useSEO({
     title: 'Image Optimizer | Free Online Tool | Sivraj',
@@ -206,6 +206,42 @@ export default function ImageOptimizer() {
             </div>
           )}
 
+        </div>
+
+        {/* SEO & FAQ Section */}
+        <div style={{ maxWidth: '800px', margin: '4rem auto 0 auto', lineHeight: '1.6', color: 'var(--text-color)' }}>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'white' }}>How to Compress Images for Government Forms and Exams</h2>
+          <p style={{ marginBottom: '1rem' }}>
+            Applying for a visa, passport, or a government exam online can be frustrating when they require your photo or signature to be under a strict file size, like <strong>50KB or 100KB</strong>. Most modern smartphones take photos that are 3MB to 5MB, which is 100 times too large!
+          </p>
+          <p style={{ marginBottom: '1rem' }}>
+            Our free Image Optimizer solves this instantly. Simply upload your photo, select your target size from the dropdown, and our intelligent algorithm will compress your image down to the exact size required, while maintaining the highest possible visual quality.
+          </p>
+          <h3 style={{ fontSize: '1.5rem', marginTop: '2rem', marginBottom: '1rem', color: 'white' }}>100% Private and Secure</h3>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Unlike other online image compressors that upload your sensitive ID documents to their servers, our tool uses <strong>client-side processing</strong>. The compression happens entirely inside your web browser. Your photos never leave your device, ensuring complete privacy and security for your personal documents.
+          </p>
+
+          <FAQ 
+            items={[
+              {
+                question: 'How do I compress an image to exactly 50KB?',
+                answer: 'Simply upload your image using the button above, select "50 KB (Standard Form)" from the Target Size dropdown, and click "Compress Image". Our tool will automatically adjust the quality and resolution to hit that exact target size without making the image unrecognizable.'
+              },
+              {
+                question: 'Will compressing my image make it blurry?',
+                answer: 'We use advanced algorithms to find the perfect balance between file size and quality. While some detail is inevitably lost when shrinking a 5MB image to 50KB, our tool ensures the subject (like your face or signature) remains clear and acceptable for official forms.'
+              },
+              {
+                question: 'Is it safe to upload my Aadhaar card or Passport here?',
+                answer: 'Yes! This tool is uniquely designed for privacy. We do NOT upload your images to any server. All the heavy lifting (compression) is done by your own computer\'s processor right inside your browser window.'
+              },
+              {
+                question: 'What image formats do you support?',
+                answer: 'You can upload JPG, JPEG, PNG, and WebP images. Regardless of what you upload, the final compressed image will be optimized for maximum compatibility.'
+              }
+            ]} 
+          />
         </div>
       </main>
     </div>
